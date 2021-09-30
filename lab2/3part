@@ -1,0 +1,23 @@
+create database KBTU; 
+create table students (
+full_name text primary key,
+age integer, 
+birth_date integer, 
+gender text , 
+average_grade double precision, 
+information_about_yourself text, 
+the_need_for_a_dormitory boolean, 
+additional_info text
+);
+create table instructors ( 
+full_name text primary key , 
+speaking_languages text, 
+work_experience text, 
+possibility_of_having_remote_lessons boolean
+);
+create table participants ( 
+lesson_title text, 
+teaching_instructor text references instructors (full_name), 
+studying_students text references students (full_name), 
+room_number integer
+);
